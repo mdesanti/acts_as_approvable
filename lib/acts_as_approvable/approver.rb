@@ -17,7 +17,7 @@ module ActsAsApprovable
 
     def reject(object)
       approval = validate_approval_existance(object)
-      approvals.where(resource: object).update_attributes!(approved: false)
+      approval.update_attributes!(approved: false)
     end
 
     def pending_approvals

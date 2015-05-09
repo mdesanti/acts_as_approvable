@@ -15,6 +15,10 @@ module ActsAsApprovable
       true
     end
 
+    def pending_approvals
+      approvals.where(approved: nil)
+    end
+
     def approved?
       approvals.where(approved: [false, nil]).empty?
     end
